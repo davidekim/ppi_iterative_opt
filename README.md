@@ -20,10 +20,10 @@ ppi_iterative_opt.py is the main script.
 `python ./ppi_iterative_opt.py input_complex.pdb`
 
 ### Dependencies
-RFDiffusion [https://github.com/RosettaCommons/RFdiffusion] (https://github.com/RosettaCommons/RFdiffusion)
+RFDiffusion https://github.com/RosettaCommons/RFdiffusion
 
-Protein MPNN [https://github.com/dauparas/ProteinMPNN] (https://github.com/dauparas/ProteinMPNN)
+Protein MPNN https://github.com/dauparas/ProteinMPNN
 
-Alphafold2 [https://github.com/google-deepmind/alphafold] (https://github.com/google-deepmind/alphafold)
+Alphafold2 https://github.com/google-deepmind/alphafold
 
-Optional: Rosetta [https://github.com/RosettaCommons/rosetta] (https://github.com/RosettaCommons/rosetta)
+Optional: Rosetta https://github.com/RosettaCommons/rosetta
