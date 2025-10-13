@@ -2,7 +2,7 @@
 Protein protein interaction iterative optimization strategy to improve Alphafold2 validation metrics
 
 ## Description
-This script takes a single PDB file of a protein-protein interaction (PPI) complex as input and will try to improve Alphafold2 structure prediction validation metrics for the complex by cycling through iterations of RFdiffusion (partial diffusion), Protein MPNN, and Alphafold2 while keeping the target chain fixed.
+This script takes a single PDB file of a protein-protein interaction (PPI) complex design as input and will try to improve Alphafold2 structure prediction validation metrics for the complex by cycling through iterations of RFdiffusion (partial diffusion), Protein MPNN, and Alphafold2 while keeping the target chain fixed.
 
 ## Reference
 .
