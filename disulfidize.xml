@@ -1,0 +1,32 @@
+
+
+<ROSETTASCRIPTS>
+    <SCOREFXNS>
+        <ScoreFunction name="sfxn" weights="beta_nov16" />
+        <ScoreFunction name="sfxn_cart" weights="beta_nov16_cart" />
+    </SCOREFXNS>
+    <RESIDUE_SELECTORS>
+        <Chain name="chainA" chains="1"/>
+    </RESIDUE_SELECTORS>
+    <TASKOPERATIONS>        
+    </TASKOPERATIONS>
+    <MOVERS>
+        <Disulfidize name="disulf" min_disulfides="1" set1="chainA" set2="chainA" max_disulfides="3" max_disulf_score="0.3" min_loop="6" />
+    </MOVERS>
+    <FILTERS>
+    </FILTERS>
+    <MOVERS>
+        <MinMover name="minimize" scorefxn="sfxn_cart" tolerance="0.01" cartesian="true" bb="0" chi="1" />
+        <ScoreMover name="scorepose" scorefxn="sfxn_cart" verbose="false" />
+    </MOVERS>
+
+    <APPLY_TO_POSE>
+    </APPLY_TO_POSE>
+    <PROTOCOLS>
+
+        <Add mover="minimize" />
+        <Add mover="disulf" />
+        <Add mover="scorepose" />
+
+    </PROTOCOLS>
+</ROSETTASCRIPTS>
