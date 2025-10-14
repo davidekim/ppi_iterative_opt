@@ -20,6 +20,8 @@ ppi_iterative_opt.py is the main script.
 `python ./ppi_iterative_opt.py input_complex.pdb`
 
 ### Dependencies
+PyRosetta https://www.pyrosetta.org/
+
 RFDiffusion https://github.com/RosettaCommons/RFdiffusion
 
 Protein MPNN https://github.com/dauparas/ProteinMPNN
