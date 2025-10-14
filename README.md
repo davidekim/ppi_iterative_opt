@@ -5,14 +5,27 @@ Protein protein interaction iterative optimization strategy to improve Alphafold
 This script takes a single PDB file of a protein-protein interaction (PPI) complex design as input and will try to improve Alphafold2 structure prediction validation metrics for the complex by cycling through iterations of RFdiffusion (partial diffusion), Protein MPNN, and Alphafold2 while keeping the target chain fixed.
 
 ## Reference
-.
+Edin Muratspahić et. al. De novo design of miniprotein agonists and antagonists targeting G protein-coupled receptors. Submitted to Nature. 2025
 
 ## Installation
 You can clone this repo into a preferred destination directory by going to that directory and then running:
 
-`git clone https://github.com/davidekim/ppi_iterative_opt.git`
+~~~
+git clone https://github.com/davidekim/ppi_iterative_opt.git
+~~~
 
-Open the script in a text editor and edit the configuration parameters to point to your RFDiffusion, Protein MPNN, and Alphafold2 installations. 
+Install RFdiffusion
+~~~
+cd ppi_iterative_opt
+git clone https://github.com/RosettaCommons/RFdiffusion.git
+~~~
+Follow instructions to download the model weights into the RFDiffusion directory from https://github.com/RosettaCommons/RFdiffusion
+
+Open ppi_iterative_opt.py in a text editor and edit the configuration parameters to point to your RFDiffusion, Protein MPNN, and Alphafold2 installations.
+
+Optional:
+Install Rosetta if you want to design with disulfides.
+https://downloads.rosettacommons.org/software/academic/
 
 ## Usage
 ppi_iterative_opt.py is the main script.
