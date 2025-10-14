@@ -14,12 +14,23 @@ You can clone this repo into a preferred destination directory by going to that 
 git clone https://github.com/davidekim/ppi_iterative_opt.git
 ~~~
 
-Install RFdiffusion
+Install RFdiffusion.
 ~~~
 cd ppi_iterative_opt
 git clone https://github.com/RosettaCommons/RFdiffusion.git
+cd ..
 ~~~
-Follow instructions to download the model weights into the RFDiffusion directory from https://github.com/RosettaCommons/RFdiffusion
+Follow instructions to download the model weights into the rf_diffusion directory from https://github.com/RosettaCommons/RFdiffusion
+
+Install Alphafold2 params.
+~~~
+cd ppi_iterative_opt/af2_initial_guess
+mkdir params
+cd params
+wget https://storage.googleapis.com/alphafold/alphafold_params_2022-12-06.tar
+tar -x alphafold_params_2022-12-06.tar
+cd ../../
+~~~
 
 Open ppi_iterative_opt.py in a text editor and edit the configuration parameters to point to your RFDiffusion, Protein MPNN, and Alphafold2 installations.
 
