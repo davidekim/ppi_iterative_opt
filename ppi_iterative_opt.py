@@ -183,14 +183,13 @@ for pdb in pdbs:
     if force or not os.path.exists(prefix+'_pddone'):
       cmd = f'{rf_diffusion_container} {rf_diffusion} inference.output_prefix={prefix} '
       cmd += f'inference.input_pdb={startpdb} contigmap.contigs=[\\\'{contigstr}\\\'] inference.num_designs={partial_diffusions} denoiser.noise_scale_ca=0.5 denoiser.noise_scale_frame=0.5 diffuser.partial_T=15'
-    
-    if verbose:
-      print(f'running partial diffusion: {cmd}')
-    if not os.system(cmd):
-      for i in range(0,partial_diffusions):
-        traj = f'{cwd}/{outputdirname}/traj/'+pdb.split('/')[-1].split('.pdb')[0]+f'_pd_cycle{n:05d}_{i}_pX0_traj.pdb'
-        extract_traj(traj,prefix,i,total_traj)
-      Path(prefix+'_pddone').touch()
+      if verbose:
+        print(f'running partial diffusion: {cmd}')
+      if not os.system(cmd):
+        for i in range(0,partial_diffusions):
+          traj = f'{cwd}/{outputdirname}/traj/'+pdb.split('/')[-1].split('.pdb')[0]+f'_pd_cycle{n:05d}_{i}_pX0_traj.pdb'
+          extract_traj(traj,prefix,i,total_traj)
+        Path(prefix+'_pddone').touch()
 
     diffused = []
     for i in range(0,partial_diffusions): 
