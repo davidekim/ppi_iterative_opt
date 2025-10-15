@@ -28,7 +28,7 @@ cd ppi_iterative_opt/af2_initial_guess
 mkdir params
 cd params
 wget https://storage.googleapis.com/alphafold/alphafold_params_2022-12-06.tar
-tar -x alphafold_params_2022-12-06.tar
+tar -xf alphafold_params_2022-12-06.tar
 cd ../../
 ~~~
 
