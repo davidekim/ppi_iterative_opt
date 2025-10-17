@@ -33,7 +33,7 @@ Install Rosetta if you want to design with disulfides.
 https://downloads.rosettacommons.org/software/academic/
 
 ## Usage
-ppi_iterative_opt.py is the main script.
+ppi_iterative_opt.py is the main script. The complex should contain 2 chains, chain A (the design) and chain B (the target).
 
 `python ./ppi_iterative_opt.py input_complex.pdb`
 
