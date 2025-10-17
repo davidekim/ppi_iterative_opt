@@ -1,4 +1,7 @@
 # ppi_iterative_opt
+
+![pre_vs_post_optimization_scores_funnel.png](./pre_vs_post_optimization_scores_funnel.png)
+
 Protein protein interaction iterative optimization strategy to improve Alphafold2 validation metrics
 
 ## Description
