@@ -14,14 +14,6 @@ You can clone this repo into a preferred destination directory by going to that 
 git clone https://github.com/davidekim/ppi_iterative_opt.git
 ~~~
 
-Install RFdiffusion.
-~~~
-cd ppi_iterative_opt
-git clone https://github.com/RosettaCommons/RFdiffusion.git
-cd ..
-~~~
-Follow instructions to download the model weights into the rf_diffusion directory from https://github.com/RosettaCommons/RFdiffusion
-
 Install Alphafold2 params.
 ~~~
 cd ppi_iterative_opt/af2_initial_guess
