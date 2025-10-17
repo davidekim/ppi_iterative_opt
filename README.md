@@ -14,6 +14,8 @@ You can clone this repo into a preferred destination directory by going to that 
 git clone https://github.com/davidekim/ppi_iterative_opt.git
 ~~~
 
+You must install the dependencies for RFdiffusion, MPNN, and Alphafold2 by following the instructions from their respective web sites. 
+
 Install Alphafold2 params.
 ~~~
 cd ppi_iterative_opt/af2_initial_guess
