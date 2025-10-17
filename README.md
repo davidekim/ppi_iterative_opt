@@ -14,13 +14,7 @@ You can clone this repo into a preferred destination directory by going to that 
 git clone https://github.com/davidekim/ppi_iterative_opt.git
 ~~~
 
-Install RFdiffusion.
-~~~
-cd ppi_iterative_opt
-git clone https://github.com/RosettaCommons/RFdiffusion.git
-cd ..
-~~~
-Follow instructions to download the model weights into the rf_diffusion directory from https://github.com/RosettaCommons/RFdiffusion
+You must install the dependencies for RFdiffusion, MPNN, and Alphafold2 by following the instructions from their respective web sites. 
 
 Install Alphafold2 params.
 ~~~
@@ -39,7 +33,7 @@ Install Rosetta if you want to design with disulfides.
 https://downloads.rosettacommons.org/software/academic/
 
 ## Usage
-ppi_iterative_opt.py is the main script.
+ppi_iterative_opt.py is the main script. The complex should contain 2 chains, chain A (the design) and chain B (the target).
 
 `python ./ppi_iterative_opt.py input_complex.pdb`
 
