@@ -1,4 +1,3 @@
-#!/software/conda/envs/SE3nv/bin/python
 """
 Inference script.
 
