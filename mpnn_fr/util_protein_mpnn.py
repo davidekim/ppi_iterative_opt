@@ -1,3 +1,4 @@
+# Author: Nathaniel Bennett
 import json, time, os, sys, glob
 import shutil
 import warnings

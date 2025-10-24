@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-
+# Author: Nathaniel Bennett
 import os
 import numpy as np
 import sys

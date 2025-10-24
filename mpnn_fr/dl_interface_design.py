@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# Author: Nathaniel Bennett
 
 import os, sys
 from collections import OrderedDict
