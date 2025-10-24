@@ -280,19 +280,19 @@ for pdb in pdbs:
 
     if n == 2 and startpae <= 4.0: # terminate run early, good enough!
       if verbose: print(f'Terminating run since iteration {n} pae {startpae} is <= 4')
-      exit(0)
+      break
 
     if n == 3 and startpae <= 4.5: # terminate run early, good enough!
       if verbose: print(f'Terminating run since iteration {n} pae {startpae} is <= 4.5')
-      exit(0)
+      break
 
     if n == 4 and startpae <= 4.5: # terminate run early, good enough!
       if verbose: print(f'Terminating run since iteration {n} pae {startpae} is <= 4.5')
-      exit(0)
+      break
   
     if n == 6 and startpae >= 15: # terminate run early, horrible!
       if verbose: print(f'Terminating run since iteration {n} pae {startpae} has not reached pae < 15')
-      exit(0)
+      break
 
 
 
