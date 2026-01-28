@@ -95,7 +95,7 @@ class Sampler:
                 self.ckpt_path = f'{script_path}/../models/hotspot_models/base_complex_ss_finetuned_BFF_9.pt' 
             else:
                 # use default model
-                self.ckpt_path = f'{script_path}/../models/Base_ckpt.pt'
+                self.ckpt_path = f'{script_path}/../models/BFF_4.pt'
         # for saving in trb file:
         assert self._conf.inference.trb_save_ckpt_path is None, "trb_save_ckpt_path is not the place to specify an input model. Specify in inference.ckpt_override_path"
         self._conf['inference']['trb_save_ckpt_path']=self.ckpt_path
