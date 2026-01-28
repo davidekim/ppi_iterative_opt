@@ -13,10 +13,6 @@ from timeit import default_timer as timer
 import argparse
 
 import io
-#from Bio import PDB
-#from Bio.PDB.Polypeptide import PPBuilder
-#from Bio.PDB import PDBParser
-#from Bio.PDB.mmcifio import MMCIFIO
 
 import scipy
 import jax
@@ -36,8 +32,7 @@ from alphafold.data.tools import hhsearch
 sys.path.append(os.path.join(os.path.dirname(sys.path[0]),'include'))
 
 from pyrosetta import *
-from rosetta import *
-init()
+from pyrosetta.rosetta import *
 
 def get_args():
     parser = argparse.ArgumentParser(formatter_class=argparse.RawTextHelpFormatter)
@@ -46,11 +41,16 @@ def get_args():
                         help="pdb file to predict or list of pdbs to predict")
     parser.add_argument("-recycle", dest="recycle", type=int, default=3,
                         help="Number of recycle iterations to perform")
-
+    parser.add_argument("-verbose", action="store_true", help="Chatty output.") 
     args = parser.parse_args()
     return args
 
 args = get_args()
+
+if args.verbose:
+    init()
+else:
+    init("-mute all")
 
 model_name = "model_1_ptm"
 

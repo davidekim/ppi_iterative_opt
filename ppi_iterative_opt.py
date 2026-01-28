@@ -11,14 +11,14 @@ script_path = os.path.dirname(os.path.abspath(__file__))
 
 # Point this to an optional RF diffusion Apptainer
 # https://apptainer.org/docs/user/main/index.html
-rf_diffusion_container = "python" # f"{script_path}/containers/RF_diffusion.sif"
+rf_diffusion_container = "python" # f"/software/containers/SE3nv.sif"
 
 # Point this to your RF diffusion installation
 # https://github.com/RosettaCommons/RFdiffusion
 rf_diffusion = f"{script_path}/rf_diffusion/run_inference.py"
 
 # Point this to an optional MPNN Apptainer
-mpnn_fr_container = "python" # f"{script_path}/containers/mpnn_binder_design.sif"
+mpnn_fr_container = "python" # f"/software/containers/mpnn_binder_design.sif"
 
 # Point this to your ProteinMPNN installation
 # https://github.com/dauparas/ProteinMPNN
@@ -29,7 +29,7 @@ mpnn_fr_checkpoint = f"{script_path}/mpnn_fr/ProteinMPNN/soluble_model_weights/v
 rosetta_scripts = f"{script_path}/rosetta/latest/bin/rosetta_scripts.hdf5.linuxgccrelease"
 
 # Point this to an optional AF2 Apptainer
-af2_container = "python" # f"{script_path}/containers/af2_binder_design.sif"
+af2_container = "python" # f"/software/containers/af2_binder_design.sif"
 
 # Point this to your AF2 installation
 af2 = f"{script_path}/af2_initial_guess/interfaceAF2predict.py"
@@ -204,6 +204,7 @@ for pdb in pdbs:
       cmd = f' {mpnn_fr_container} {mpnn_fr} -checkpoint_path {mpnn_fr_checkpoint} '
       cmd += f' -mpnn_cycles {mpnns} -temperature 0.0001 -augment_eps 0 -relax_cycles {mpnn_relax_cycles} -pdb '+','.join(diffused)
       if verbose:
+        cmd += " -verbose"
         print(f'running mpnn+relax: {cmd}')
       if not os.system(cmd):
         Path(prefix+'_mpnndone').touch()
@@ -214,7 +215,7 @@ for pdb in pdbs:
       for i in glob.glob(f'{prefix}*cycle*.pdb'):
         if not i.endswith('af2pred.pdb') and not i.endswith('_0001.pdb'):
           mpnned.append(i)
-      cmd = f'{rosetta_scripts} -parser:protocol {script_path}/disulfidize.xml '
+      cmd = f'{rosetta_scripts} -mute all -parser:protocol {script_path}/disulfidize.xml '
       cmd += f'-corrections::beta_nov16 -out:path:all {cwd}/{outputdirname}/ -in:file:s '+' '.join(mpnned)
       if verbose:
         print(f'running disulfidize1: {cmd}')
@@ -231,6 +232,7 @@ for pdb in pdbs:
       cmd = f' {mpnn_fr_container} {mpnn_fr} -checkpoint_path {mpnn_fr_checkpoint} '
       cmd += f' -mpnn_cycles {mpnns} -temperature 0.0001 -augment_eps 0 -fix_FIXED_res -relax_cycles {mpnn_relax_cycles} -pdb '+','.join(disulfidized)
       if verbose:
+        cmd += " -verbose"
         print(f'running mpnn+relax disulfidize2: {cmd}')
       if not os.system(cmd):
         Path(prefix+'_disulfidizedone2').touch()
@@ -243,6 +245,7 @@ for pdb in pdbs:
           mpnned.append(i)
       cmd = f'{af2_container} {af2} -scorefile {prefix}_af2.sc -pdbs '+','.join(mpnned)
       if verbose:
+        cmd += ' -verbose'
         print(f'running af2: {cmd}')
       if not os.system(cmd):
         Path(prefix+'_af2done').touch()

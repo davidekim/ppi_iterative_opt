@@ -30,10 +30,13 @@ parser.add_argument( "-omit_AAs", type=str, default='CX', help='A string off all
 parser.add_argument( "-num_connections", type=int, default=48, help='Number of neighbors each residue is connected to (default 48)' )
 parser.add_argument( "-fix_FIXED_res", action="store_true", help='Whether to fix the sequence of residues labelled as FIXED or not (default False)' )
 parser.add_argument( "-pdbs", type=str, required=True, help='Input .pdb file or file with list of pdbs' )
+parser.add_argument( "-verbose", action="store_true", help="Chatty output.")
 args = parser.parse_args( sys.argv[1:] )
 
-
-init("-beta_nov16")
+if args.verbose:
+  init("-beta_nov16")
+else:
+  init("-beta_nov16 -mute all")
 
 omit_AAs = [ letter for letter in args.omit_AAs.upper() if letter in list("ARNDCQEGHILKMFPSTWYVX") ]
 
