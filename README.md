@@ -24,7 +24,7 @@ You must install the dependencies for RFdiffusion, MPNN, and Alphafold2 by follo
 Install RFdiffusion checkpoint.
 ~~~
 cd ppi_iterative_opt/rf_diffusion/models
-wget http://files.ipd.uw.edu/pub/RFdiffusion/6f5902ac237024bdd0c176cb93063dc4/Base_ckpt.pt
+wget https://files.ipd.uw.edu/pub/ppi_iterative_opt/rf_diffusion/models/BFF_4.pt
 cd ../../../
 ~~~
 
