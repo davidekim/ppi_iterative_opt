@@ -21,6 +21,13 @@ git clone https://github.com/davidekim/ppi_iterative_opt.git
 
 You must install the dependencies for RFdiffusion, MPNN, and Alphafold2 by following the instructions from their respective web sites. 
 
+Install RFdiffusion checkpoint.
+~~~
+cd ppi_iterative_opt/rf_diffusion/models
+wget http://files.ipd.uw.edu/pub/RFdiffusion/6f5902ac237024bdd0c176cb93063dc4/Base_ckpt.pt
+cd ../../../
+~~~
+
 Install Alphafold2 params.
 ~~~
 cd ppi_iterative_opt/af2_initial_guess
