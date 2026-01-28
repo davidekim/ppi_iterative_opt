@@ -11,14 +11,14 @@ script_path = os.path.dirname(os.path.abspath(__file__))
 
 # Point this to an optional RF diffusion Apptainer
 # https://apptainer.org/docs/user/main/index.html
-rf_diffusion_container = f"{script_path}/containers/RF_diffusion.sif"
+rf_diffusion_container = "" # f"{script_path}/containers/RF_diffusion.sif"
 
 # Point this to your RF diffusion installation
 # https://github.com/RosettaCommons/RFdiffusion
 rf_diffusion = f"{script_path}/rf_diffusion/run_inference.py"
 
 # Point this to an optional MPNN Apptainer
-mpnn_fr_container = f"{script_path}/containers/mpnn_binder_design.sif"
+mpnn_fr_container = "" # f"{script_path}/containers/mpnn_binder_design.sif"
 
 # Point this to your ProteinMPNN installation
 # https://github.com/dauparas/ProteinMPNN
@@ -29,7 +29,7 @@ mpnn_fr_checkpoint = f"{script_path}/mpnn_fr/ProteinMPNN/soluble_model_weights/v
 rosetta_scripts = f"{script_path}/rosetta/latest/bin/rosetta_scripts.hdf5.linuxgccrelease"
 
 # Point this to an optional AF2 Apptainer
-af2_container = f"{script_path}/containers/af2_binder_design.sif"
+af2_container = "" # f"{script_path}/containers/af2_binder_design.sif"
 
 # Point this to your AF2 installation
 af2 = f"{script_path}/af2_initial_guess/interfaceAF2predict.py"
