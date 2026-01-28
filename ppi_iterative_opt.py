@@ -41,6 +41,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument('--outputdirname', type=str, default='ppi_iterative_opt_output', help='Name of output directory.')
 parser.add_argument('--cycles', type=int, default=10, help='Iterations.')
 parser.add_argument('--partial_diffusions', type=int, default=20, help='Number of partial diffusions per iteration.')
+parser.add_argument('--partial_T', type=int, default=15, help='Partial diffusion partial_T value.')
 parser.add_argument('--total_traj', type=int, default=10, help='Number of partial diffusion trajectory models to include.')
 parser.add_argument('--mpnns', type=int, default=1, help='Number of MPNN sequence designs.')
 parser.add_argument('--mpnn_relax_cycles', type=int, default=0, help='Number of mpnn Rosetta relax cycles.')
@@ -55,6 +56,7 @@ exit = False
 outputdirname =  args['outputdirname']
 cycles =  args['cycles']
 partial_diffusions = args['partial_diffusions']
+partial_T = args['partial_T']
 total_traj = args['total_traj']
 mpnns = args['mpnns']
 mpnn_relax_cycles = args['mpnn_relax_cycles']
@@ -182,7 +184,7 @@ for pdb in pdbs:
     prefix = f'{cwd}/{outputdirname}/'+pdb.split('/')[-1].split('.pdb')[0]+f'_pd_cycle{n:05d}'
     if force or not os.path.exists(prefix+'_pddone'):
       cmd = f'{rf_diffusion_container} {rf_diffusion} inference.output_prefix={prefix} '
-      cmd += f'inference.input_pdb={startpdb} contigmap.contigs=[\\\'{contigstr}\\\'] inference.num_designs={partial_diffusions} denoiser.noise_scale_ca=0.5 denoiser.noise_scale_frame=0.5 diffuser.partial_T=15'
+      cmd += f'inference.input_pdb={startpdb} contigmap.contigs=[\\\'{contigstr}\\\'] inference.num_designs={partial_diffusions} denoiser.noise_scale_ca=0.5 denoiser.noise_scale_frame=0.5 diffuser.partial_T={partial_T}'
       if verbose:
         print(f'running partial diffusion: {cmd}')
       if not os.system(cmd):
