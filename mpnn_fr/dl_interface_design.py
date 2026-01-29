@@ -191,7 +191,7 @@ def dl_design( pose, pdb, mpnn_model ):
     else:
         seq, mpnn_score = mpnn_best(seqs_scores)
         pose = thread_mpnn_seq( pose, seq )
-        pose.dump_pdb(f"{prefix}_0_cycle{args.relax_cycles}.pdb")
+        pose.dump_pdb(f"{prefix}_0_cycle{args.relax_cycles}_relaxed.pdb")
 
 # Checkpointing Functions
 
