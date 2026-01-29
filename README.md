@@ -38,7 +38,7 @@ tar -xf alphafold_params_2022-12-06.tar
 cd ../../
 ~~~
 
-Open ppi_iterative_opt.py in a text editor and edit the configuration parameters to point to your RFDiffusion, Protein MPNN, and Alphafold2 installations.
+Open ppi_iterative_opt.py in a text editor and edit the configuration parameters to point to alternative RFDiffusion, Protein MPNN, and/or Alphafold2 installations if desired.
 
 Optional:
 Install Rosetta if you want to design with disulfides.
