@@ -36,14 +36,25 @@ class SymGen:
         self._log = logging.getLogger(__name__)
         self._recenter = recenter
         self._radius = radius
+        self._pseudocyclic = False
 
         if global_sym.lower().startswith('c'):
-            # Cyclic symmetry
+            # Cyclic
             if not global_sym[1:].isdigit():
                 raise ValueError(f'Invalid cyclic symmetry {global_sym}')
             self._log.info(
                 f'Initializing cyclic symmetry order {global_sym[1:]}.')
             self._init_cyclic(int(global_sym[1:]))
+            self.apply_symmetry = self._apply_cyclic
+        
+        elif global_sym.lower().startswith('pc'):
+            # Pseudocyclic
+            self._pseudocyclic = True
+            if not global_sym[2:].isdigit():
+                raise ValueError(f'Invalid pseudocyclic symmetry {global_sym}')
+            self._log.info(
+                f'Initializing pseudocyclic symmetry order {global_sym[2:]}.')
+            self._init_cyclic(int(global_sym[2:]))
             self.apply_symmetry = self._apply_cyclic
 
         elif global_sym.lower().startswith('mc'):
@@ -96,7 +107,8 @@ class SymGen:
         #     self.close_rots = self.close_neighbors()
         # self.num_subunits = len(self.close_rots) if self.model_only_neibhbors else self.order
         self.res_idx_procesing = fn.partial(
-            self._lin_chainbreaks, num_breaks=self.order)
+            self._lin_chainbreaks, num_breaks=self.order
+            )
 
     #####################
     ## Cyclic symmetry ##
@@ -117,7 +129,7 @@ class SymGen:
             raise ValueError(
                 f'Sequence length must be divisble by {self.order}')
         subunit_len = seq_out.shape[0] // self.order
-        for i in range(self.order):
+        for i in range(len(self.sym_rots)): # required in order to handle pseudocyclic symmetries
             start_i = subunit_len * i
             end_i = subunit_len * (i+1)
             coords_out[start_i:end_i] = torch.einsum(
@@ -126,6 +138,8 @@ class SymGen:
         return coords_out, seq_out
 
     def _lin_chainbreaks(self, num_breaks, res_idx, offset=None):
+        if self._pseudocyclic:
+            num_breaks = 1
         assert res_idx.ndim == 2
         res_idx = torch.clone(res_idx)
         subunit_len = res_idx.shape[-1] // num_breaks
