@@ -12,6 +12,10 @@ Edin Muratspahić et. al. De novo design of miniprotein agonists and antagonists
 
 Bennett, N.R., Coventry, B., Goreshnik, I. et al. Improving de novo protein binder design with deep learning. Nat Commun 14, 2625 (2023). https://doi.org/10.1038/s41467-023-38328-5
 
+## Third Party Source Code <a name="sourcecode"></a>
+This repository provides a version of [Nathaniel's dl_binder_design code](https://github.com/nrbennet/dl_binder_design) with modifications to output PDB files, and a copy of [Justas' ProteinMPNN code](https://github.com/dauparas/ProteinMPNN), a version of the AlphaFold2 source code with the "initial guess" modifications described in [this paper](https://www.nature.com/articles/s41467-023-38328-5), and a version of [RFdiffusion](https://github.com/RosettaCommons/RFdiffusion). The AF2 source code is provided with the original DeepMind license at the top of each file.
+
+
 ## Installation
 You can clone this repo into a preferred destination directory by going to that directory and then running:
 
@@ -19,7 +23,7 @@ You can clone this repo into a preferred destination directory by going to that 
 git clone https://github.com/davidekim/ppi_iterative_opt.git
 ~~~
 
-You must install the dependencies for RFdiffusion, MPNN, and Alphafold2 by following the instructions from their respective web sites. 
+You must install the dependencies for RFdiffusion, MPNN, and Alphafold2 by following the instructions from their respective web sites. More information is available in the [dl_binder_design repo](https://github.com/nrbennet/dl_binder_design).
 
 Install RFdiffusion checkpoint.
 ~~~
@@ -51,11 +55,5 @@ ppi_iterative_opt.py is the main script. The complex should contain 2 chains, ch
 
 ### Dependencies
 PyRosetta https://www.pyrosetta.org/
-
-RFDiffusion https://github.com/RosettaCommons/RFdiffusion
-
-Protein MPNN https://github.com/dauparas/ProteinMPNN
-
-Alphafold2 https://github.com/google-deepmind/alphafold
 
 Optional: Rosetta https://github.com/RosettaCommons/rosetta
