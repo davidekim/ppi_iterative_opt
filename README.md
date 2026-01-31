@@ -27,7 +27,8 @@ You must install the dependencies for RFdiffusion, MPNN, and Alphafold2 by follo
 
 Install RFdiffusion checkpoint.
 ~~~
-cd ppi_iterative_opt/rf_diffusion/models
+cd ppi_iterative_opt/rf_diffusion
+mkdir models && cd models
 wget https://files.ipd.uw.edu/pub/ppi_iterative_opt/rf_diffusion/models/BFF_4.pt
 cd ../../../
 ~~~
@@ -35,8 +36,7 @@ cd ../../../
 Install Alphafold2 params.
 ~~~
 cd ppi_iterative_opt/af2_initial_guess
-mkdir params
-cd params
+mkdir params && cd params
 wget https://storage.googleapis.com/alphafold/alphafold_params_2022-12-06.tar
 tar -xf alphafold_params_2022-12-06.tar
 cd ../../
