@@ -12,7 +12,7 @@ Edin Muratspahić et. al. De novo design of miniprotein agonists and antagonists
 
 Bennett, N.R., Coventry, B., Goreshnik, I. et al. Improving de novo protein binder design with deep learning. Nat Commun 14, 2625 (2023). https://doi.org/10.1038/s41467-023-38328-5
 
-## Third Party Source Code <a name="sourcecode"></a>
+## Third Party Source Code
 This repository provides versions of [Nathaniel's dl_binder_design code](https://github.com/nrbennet/dl_binder_design), [Justas' ProteinMPNN code](https://github.com/dauparas/ProteinMPNN), the AlphaFold2 source code with the "initial guess" modifications described in [this paper](https://www.nature.com/articles/s41467-023-38328-5), and [RFdiffusion](https://github.com/RosettaCommons/RFdiffusion). The AF2 source code is provided with the original DeepMind license at the top of each file.
 
 
