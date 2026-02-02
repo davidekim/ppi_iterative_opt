@@ -84,15 +84,15 @@ class Sampler:
                     # this is only used for partial diffusion
                     assert conf.diffuser.partial_T is not None, "The provide_seq input is specifically for partial diffusion"
                 if conf.scaffoldguided.scaffoldguided:
-                    self.ckpt_path=f'{script_path}/../models/seq_alone_models_FoldConditioned_Jan23/BFF_4.pt'
+                    self.ckpt_path=f'{script_path}/../models/InpaintSeq_Fold_ckpt.pt'
                 else:
-                    self.ckpt_path = f'{script_path}/../models/seq_alone_models_Dec2022/BFF_6.pt'
+                    self.ckpt_path = f'{script_path}/../models/InpaintSeq_ckpt.pt'
             elif conf.ppi.hotspot_res is not None and conf.scaffoldguided.scaffoldguided is False:
                 # use complex trained model
-                self.ckpt_path = f'{script_path}/../models/hotspot_models/base_complex_finetuned_BFF_9.pt'
+                self.ckpt_path = f'{script_path}/../models/Complex_base_ckpt.pt'
             elif conf.scaffoldguided.scaffoldguided is True:
                 # use complex and secondary structure-guided model
-                self.ckpt_path = f'{script_path}/../models/hotspot_models/base_complex_ss_finetuned_BFF_9.pt' 
+                self.ckpt_path = f'{script_path}/../models/Complex_Fold_base_ckpt.pt' 
             else:
                 # use default model
                 self.ckpt_path = f'{script_path}/../models/BFF_4.pt'
