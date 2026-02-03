@@ -177,7 +177,7 @@ class Sampler:
         if self.inf_conf.input_pdb is None:
             # set default pdb
             script_dir=os.path.dirname(os.path.realpath(__file__))
-            self.inf_conf.input_pdb=os.path.join(script_dir, '../benchmark/input/1qys.pdb')
+            self.inf_conf.input_pdb=os.path.join(script_dir, 'input/1qys.pdb')
         self.target_feats = iu.process_target(self.inf_conf.input_pdb, parse_hetatom=True, center=False)
         self.chain_idx = None
 
