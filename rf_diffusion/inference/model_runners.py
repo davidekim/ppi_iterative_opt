@@ -92,7 +92,7 @@ class Sampler:
                 self.ckpt_path = f'{script_path}/../models/Complex_base_ckpt.pt'
             elif conf.scaffoldguided.scaffoldguided is True:
                 # use complex and secondary structure-guided model
-                self.ckpt_path = f'{script_path}/../models/Complex_Fold_base_ckpt.pt' 
+                self.ckpt_path = f'{script_path}/../models/base_complex_ss_finetuned_BFF_9.pt' 
             else:
                 # use default model
                 self.ckpt_path = f'{script_path}/../models/BFF_4.pt'
